@@ -27,6 +27,7 @@ jobs:
       environmentType: Test
       resourceGroupName: ToyWebsiteTest
       reviewApiUrl: https://sandbox.contoso.com/reviews
+      sqlServerAdministratorLogin: TestToyCompanyAdmin
     secrets:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID_TEST }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
@@ -46,6 +47,7 @@ jobs:
       environmentType: Production
       resourceGroupName: ToyWebsiteProduction
       reviewApiUrl: https://api.contoso.com/reviews
+      sqlServerAdministratorLogin: ToyCompanyAdmin
     secrets:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID_PRODUCTION }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
