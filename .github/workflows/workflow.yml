@@ -26,11 +26,12 @@ jobs:
     with:
       environmentType: Test
       resourceGroupName: ToyWebsiteTest
+      sqlServerAdministratorLogin: TestToyCompanyAdmin
     secrets:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID_TEST }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
+      sqlServerAdministratorLoginPassword: ${{ secrets.SQL_SERVER_ADMINISTRATOR_LOGIN_PASSWORD_TEST }}
 
   # Deploy to the production environment.
   deploy-production:
@@ -38,11 +39,12 @@ jobs:
     needs:
       - build
       - deploy-test 
-      - deploy-test
     with:
       environmentType: Production
       resourceGroupName: ToyWebsiteProduction
+      sqlServerAdministratorLogin: ToyCompanyAdmin
     secrets:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID_PRODUCTION }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      sqlServerAdministratorLoginPassword: ${{ secrets.SQL_SERVER_ADMINISTRATOR_LOGIN_PASSWORD_PRODUCTION }}
