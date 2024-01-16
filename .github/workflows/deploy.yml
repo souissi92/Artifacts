@@ -19,8 +19,6 @@ on:
         required: true
       AZURE_SUBSCRIPTION_ID:
         required: true
-      reviewApiKey:
-        required: true
 
 jobs:
   validate:
@@ -42,8 +40,6 @@ jobs:
          template: ./deploy/main.bicep
          parameters: >
            environmentType=${{ inputs.environmentType }}
-           reviewApiUrl=${{ inputs.reviewApiUrl }}
-           reviewApiKey=${{ secrets.reviewApiKey }}
          deploymentMode: Validate
      - if: inputs.environmentType == 'Production'
        uses: azure/arm-deploy@v1
